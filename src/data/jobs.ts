@@ -1,0 +1,391 @@
+import { Job } from '../types';
+
+export const jobs: Job[] = [
+  {
+    id: 'j1',
+    title: 'Senior Frontend Engineer',
+    company: 'Stripe',
+    companyId: 'c1',
+    companyLogo: 'S',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '3-5 years',
+    salaryMin: 35,
+    salaryMax: 55,
+    currency: 'LPA',
+    postedDays: 2,
+    description: 'Build delightful, performant interfaces that power millions of businesses worldwide. You will work across the product to ship features end-to-end, collaborating with designers, backend engineers, and product managers.',
+    responsibilities: [
+      'Design and implement high-quality React components',
+      'Partner with design to push the boundaries of UX patterns',
+      'Champion performance, accessibility, and code quality',
+      'Mentor junior engineers and review pull requests'
+    ],
+    requirements: [
+      '4+ years building production web applications',
+      'Deep expertise in React, TypeScript, and modern CSS',
+      'Strong eye for design and user experience',
+      'Experience with testing and CI/CD workflows'
+    ],
+    skills: ['React', 'TypeScript', 'Tailwind', 'GraphQL', 'Node.js'],
+    benefits: ['Equity', 'Health insurance', 'Remote-first', 'Learning budget'],
+    applicants: 248,
+    featured: true,
+    remote: true
+  },
+  {
+    id: 'j2',
+    title: 'Product Designer',
+    company: 'Razorpay',
+    companyId: 'c2',
+    companyLogo: 'R',
+    location: 'Hybrid — Bengaluru',
+    type: 'Full-time',
+    category: 'Design',
+    experience: '3-5 years',
+    salaryMin: 22,
+    salaryMax: 38,
+    currency: 'LPA',
+    postedDays: 1,
+    description: 'Shape the future of digital payments for Indian businesses. You will lead end-to-end design for our merchant dashboard, working closely with PMs and engineers to ship impactful products.',
+    responsibilities: [
+      'Own the design vision for key product surfaces',
+      'Run user research and synthesize insights',
+      'Build and maintain our design system',
+      'Prototype, test, and iterate quickly'
+    ],
+    requirements: [
+      '3+ years of product design experience',
+      'Mastery of Figma and modern prototyping tools',
+      'Portfolio that shows end-to-end product thinking',
+      'Comfort with data and metrics'
+    ],
+    skills: ['Figma', 'Design Systems', 'User Research', 'Prototyping'],
+    benefits: ['Stock options', 'Wellness cover', 'Catered meals'],
+    applicants: 132,
+    featured: true,
+    remote: false
+  },
+  {
+    id: 'j3',
+    title: 'Backend Engineer — Payments',
+    company: 'Razorpay',
+    companyId: 'c2',
+    companyLogo: 'R',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '3-5 years',
+    salaryMin: 28,
+    salaryMax: 45,
+    currency: 'LPA',
+    postedDays: 5,
+    description: 'Design and scale the distributed systems that move billions of dollars for Indian businesses. You will own critical services that demand reliability at scale.',
+    responsibilities: [
+      'Build resilient distributed services in Go',
+      'Drive architectural decisions for payments infrastructure',
+      'Improve observability, performance, and reliability',
+      'Mentor engineers across the team'
+    ],
+    requirements: [
+      '3+ years building backend systems at scale',
+      'Strong fundamentals in distributed systems',
+      'Experience with Go, Java, or similar',
+      'Comfort with PostgreSQL and Redis'
+    ],
+    skills: ['Go', 'PostgreSQL', 'Kafka', 'AWS', 'Microservices'],
+    benefits: ['Stock options', 'Health insurance', 'WFH setup'],
+    applicants: 96,
+    remote: false
+  },
+  {
+    id: 'j4',
+    title: 'Data Scientist',
+    company: 'Swiggy',
+    companyId: 'c3',
+    companyLogo: 'S',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Data',
+    experience: '1-3 years',
+    salaryMin: 18,
+    salaryMax: 32,
+    currency: 'LPA',
+    postedDays: 3,
+    description: 'Harness data to optimize the largest food delivery network in India. Build models that improve delivery time, restaurant discovery, and demand forecasting.',
+    responsibilities: [
+      'Build ML models for ETA, demand, and personalization',
+      'Run A/B experiments and measure impact',
+      'Partner with engineering to deploy at scale',
+      'Communicate findings to stakeholders'
+    ],
+    requirements: [
+      'Strong statistics and ML fundamentals',
+      'Python (pandas, scikit-learn, PyTorch)',
+      'Experience with experimentation',
+      'Excellent communication skills'
+    ],
+    skills: ['Python', 'SQL', 'Machine Learning', 'A/B Testing'],
+    benefits: ['Meal credits', 'Insurance', 'Gym'],
+    applicants: 187,
+    remote: false
+  },
+  {
+    id: 'j5',
+    title: 'DevOps Engineer',
+    company: 'Zerodha',
+    companyId: 'c4',
+    companyLogo: 'Z',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '3-5 years',
+    salaryMin: 20,
+    salaryMax: 35,
+    currency: 'LPA',
+    postedDays: 7,
+    description: 'Keep the trading infrastructure that powers India\'s largest stock broker humming 24x7. You will own observability, deployment pipelines, and incident response.',
+    responsibilities: [
+      'Maintain Kubernetes infrastructure on bare metal',
+      'Build CI/CD pipelines and improve developer experience',
+      'Drive incident response and postmortems',
+      'Automate operational toil'
+    ],
+    requirements: [
+      '3+ years in DevOps/SRE roles',
+      'Strong Linux and networking fundamentals',
+      'Kubernetes, Terraform, Prometheus',
+      'Bias for automation'
+    ],
+    skills: ['Kubernetes', 'Terraform', 'Go', 'Linux', 'AWS'],
+    benefits: ['No meetings culture', 'Health cover', 'Books budget'],
+    applicants: 64,
+    remote: false
+  },
+  {
+    id: 'j6',
+    title: 'Mobile Engineer (iOS)',
+    company: 'Cred',
+    companyId: 'c5',
+    companyLogo: 'C',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '3-5 years',
+    salaryMin: 30,
+    salaryMax: 50,
+    currency: 'LPA',
+    postedDays: 4,
+    description: 'Craft the premium iOS experience for millions of credit-aware Indians. Build delightful animations, robust integrations, and ship fast.',
+    responsibilities: [
+      'Build features in Swift and SwiftUI',
+      'Own quality, performance, and architecture',
+      'Collaborate with design and backend',
+      'Mentor and grow the team'
+    ],
+    requirements: [
+      '4+ years of native iOS development',
+      'Strong Swift, SwiftUI, and architecture skills',
+      'Eye for animation and detail',
+      'Experience shipping at scale'
+    ],
+    skills: ['Swift', 'SwiftUI', 'iOS', 'Architecture'],
+    benefits: ['Equity', 'Top-tier hardware', 'Wellness'],
+    applicants: 78,
+    remote: false
+  },
+  {
+    id: 'j7',
+    title: 'Frontend Intern',
+    company: 'Linear',
+    companyId: 'c6',
+    companyLogo: 'L',
+    location: 'Remote',
+    type: 'Internship',
+    category: 'Engineering',
+    experience: 'Fresher',
+    salaryMin: 60,
+    salaryMax: 120,
+    currency: 'K/month',
+    postedDays: 1,
+    description: 'Help build the most beautiful issue tracker in the world. You will ship real features to real users from day one.',
+    responsibilities: [
+      'Build polished React + TypeScript features',
+      'Iterate on UI quality and accessibility',
+      'Pair with senior engineers',
+      'Contribute to design system'
+    ],
+    requirements: [
+      'Strong fundamentals in JavaScript/TypeScript',
+      'Some experience building for the web',
+      'Eye for design and detail',
+      'Currently pursuing a degree'
+    ],
+    skills: ['React', 'TypeScript', 'CSS', 'Git'],
+    benefits: ['Mentorship', 'Real projects', 'Stipend'],
+    applicants: 412,
+    featured: true,
+    remote: true
+  },
+  {
+    id: 'j8',
+    title: 'Engineering Manager',
+    company: 'PhonePe',
+    companyId: 'c7',
+    companyLogo: 'P',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '8+ years',
+    salaryMin: 60,
+    salaryMax: 95,
+    currency: 'LPA',
+    postedDays: 6,
+    description: 'Lead a team building the wallet experience for 500M+ Indians. You will grow the team, set the technical direction, and ship high-impact work.',
+    responsibilities: [
+      'Hire, coach, and grow engineers',
+      'Set roadmap with product partners',
+      'Drive technical excellence',
+      'Own outcomes end-to-end'
+    ],
+    requirements: [
+      '8+ years of engineering experience',
+      '2+ years managing engineers',
+      'Strong system design skills',
+      'Excellent communication'
+    ],
+    skills: ['Leadership', 'System Design', 'Hiring', 'Mobile'],
+    benefits: ['Significant equity', 'Insurance', 'Sabbatical'],
+    applicants: 52,
+    remote: false
+  },
+  {
+    id: 'j9',
+    title: 'Marketing Lead',
+    company: 'Notion',
+    companyId: 'c8',
+    companyLogo: 'N',
+    location: 'Remote (India)',
+    type: 'Full-time',
+    category: 'Marketing',
+    experience: '5-8 years',
+    salaryMin: 30,
+    salaryMax: 55,
+    currency: 'LPA',
+    postedDays: 8,
+    description: 'Grow Notion\'s presence in India. Build a brand that millions of Indians love, drive acquisition, and shape category.',
+    responsibilities: [
+      'Build and run growth marketing',
+      'Own paid + organic channels',
+      'Lead brand campaigns',
+      'Partner with global teams'
+    ],
+    requirements: [
+      '5+ years in growth or brand marketing',
+      'Experience scaling consumer products',
+      'Strong analytical chops',
+      'Excellent creative taste'
+    ],
+    skills: ['Growth', 'Brand', 'Analytics', 'Content'],
+    benefits: ['Remote-first', 'Equity', 'Wellness'],
+    applicants: 89,
+    remote: true
+  },
+  {
+    id: 'j10',
+    title: 'Customer Success Specialist',
+    company: 'Freshworks',
+    companyId: 'c9',
+    companyLogo: 'F',
+    location: 'Chennai, India',
+    type: 'Full-time',
+    category: 'Customer Success',
+    experience: '1-3 years',
+    salaryMin: 8,
+    salaryMax: 14,
+    currency: 'LPA',
+    postedDays: 10,
+    description: 'Help Indian SMBs get the most out of Freshworks. Own a book of business, drive adoption, and turn customers into advocates.',
+    responsibilities: [
+      'Own renewals and expansion',
+      'Run onboarding and training',
+      'Be the voice of the customer',
+      'Drive product adoption'
+    ],
+    requirements: [
+      '2+ years in CS or account management',
+      'Excellent communication',
+      'Tech-savvy and quick learner',
+      'Empathy and ownership'
+    ],
+    skills: ['Communication', 'SaaS', 'CRM', 'Training'],
+    benefits: ['Insurance', 'WFH', 'Learning'],
+    applicants: 134,
+    remote: false
+  },
+  {
+    id: 'j11',
+    title: 'Full Stack Developer',
+    company: 'Postman',
+    companyId: 'c10',
+    companyLogo: 'P',
+    location: 'Hybrid — Bengaluru',
+    type: 'Full-time',
+    category: 'Engineering',
+    experience: '3-5 years',
+    salaryMin: 25,
+    salaryMax: 42,
+    currency: 'LPA',
+    postedDays: 2,
+    description: 'Build the platform that 30M+ developers trust. You will own features end-to-end across the stack.',
+    responsibilities: [
+      'Ship full-stack features',
+      'Work across React, Node, and Postgres',
+      'Improve performance and reliability',
+      'Collaborate globally'
+    ],
+    requirements: [
+      '3+ years full stack',
+      'Strong React and Node',
+      'Postgres / SQL fluency',
+      'System design chops'
+    ],
+    skills: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    benefits: ['Equity', 'Insurance', 'WFH'],
+    applicants: 156,
+    remote: false
+  },
+  {
+    id: 'j12',
+    title: 'UX Researcher',
+    company: 'Cred',
+    companyId: 'c5',
+    companyLogo: 'C',
+    location: 'Bengaluru, India',
+    type: 'Contract',
+    category: 'Design',
+    experience: '1-3 years',
+    salaryMin: 12,
+    salaryMax: 20,
+    currency: 'LPA',
+    postedDays: 5,
+    description: 'Help us understand the people behind the numbers. Run studies, synthesize insights, and shape product direction.',
+    responsibilities: [
+      'Plan and run qualitative studies',
+      'Synthesize and present findings',
+      'Build a research repository',
+      'Partner with PM and design'
+    ],
+    requirements: [
+      '2+ years in UX research',
+      'Strong qualitative methods',
+      'Excellent storytelling',
+      'Bias for action'
+    ],
+    skills: ['Research', 'Interviews', 'Synthesis', 'Figma'],
+    benefits: ['Flexible hours', 'Stipend'],
+    applicants: 41,
+    remote: true
+  }
+];
