@@ -3,5 +3,8 @@ dist
 .env
 .env.local
 backend/config.php
+backend/php.ini
+backend/sessions/
+backend/mysql-data/
 *.log
 .DS_Store
