@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get('redirect') || '/dashboard';
-  const { setCandidate, showToast } = useApp();
+  const { persistCandidate, showToast } = useApp();
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [step, setStep] = useState(1);
@@ -57,12 +57,12 @@ export default function RegisterPage() {
     update('skills', next);
   };
 
-  const finish = () => {
+  const finish = async () => {
     if (!consentAccepted) {
       showToast('Please accept the application terms to continue', 'error');
       return;
     }
-    setCandidate(data);
+    await persistCandidate(data);
     showToast('Profile created! Welcome to JobNest 🎉', 'success');
     navigate(redirect);
   };

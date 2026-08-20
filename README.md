@@ -5,7 +5,8 @@ A polished, production-feeling MVP inspired by LinkedIn / Naukri.com. Built for 
 ## � Features
 
 - **Smart Job Discovery** — Browse / search / filter jobs with rich detail pages, save for later
-- **Candidate Profile + Resume Upload** — 3-step onboarding, drag-and-drop PDF resume, persistent profile
+- **Candidate Profile + Resume Upload** — labeled onboarding sections, drag-and-drop PDF resume, persistent profile
+- **Browser database** — candidate profiles are stored in IndexedDB and can be reviewed from Dashboard → Stored data
 - **Application Tracking Dashboard** — Apply to jobs, track application status pipeline, manage saved jobs & profile
 
 ## 🚀 Quick start
@@ -23,7 +24,7 @@ Open http://localhost:5173
 - **React 18** + **TypeScript** (Vite)
 - **Tailwind CSS** for styling
 - **React Router** for routing
-- **localStorage** for persistence (no backend needed for MVP)
+- **IndexedDB** for profile persistence, with localStorage retained for the demo session and application state
 - Inline SVG icons (no icon library bloat)
 
 ## 📦 Project structure
@@ -59,7 +60,8 @@ VITE_API_BASE_URL=https://api.example.com
 ## ⚠ Known limitations
 
 - Data is mocked (12 jobs, 10 companies) — replace `src/data/*.ts` with API calls
-- Profile stored in localStorage only (per-browser)
+- Profile records are stored in the current browser's IndexedDB database; this is not a shared cloud database
+- No password-based authentication is implemented; email identifies the stored profile in this MVP
 - Resume stored as base64 in localStorage (5MB cap) — wire to S3/Cloudinary for real use
 - No real authentication — this is intentionally out of scope for MVP
 - No pagination — fine for demo size; add when job count grows
