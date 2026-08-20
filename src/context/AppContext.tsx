@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { Application, Candidate, Job } from '../types';
 import { jobs as initialJobs } from '../data/jobs';
-import { getUsers, saveUser } from '../data/userDatabase';
 
 interface ToastMsg { id: number; text: string; type: 'success' | 'error' | 'info' }
 
@@ -13,8 +12,6 @@ interface AppContextType {
   applyToJob: (jobId: string, resumeName?: string) => boolean;
   candidate: Candidate | null;
   setCandidate: (c: Candidate | null) => void;
-  storedUsers: Candidate[];
-  persistCandidate: (c: Candidate) => Promise<void>;
   toasts: ToastMsg[];
   showToast: (text: string, type?: ToastMsg['type']) => void;
 }
@@ -34,7 +31,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     const raw = localStorage.getItem(LS.candidate);
     return raw ? JSON.parse(raw) : null;
   });
-  const [storedUsers, setStoredUsers] = useState<Candidate[]>([]);
   const [toasts, setToasts] = useState<ToastMsg[]>([]);
 
   useEffect(() => { localStorage.setItem(LS.saved, JSON.stringify(savedJobs)); }, [savedJobs]);
@@ -43,24 +39,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     if (candidate) localStorage.setItem(LS.candidate, JSON.stringify(candidate));
     else localStorage.removeItem(LS.candidate);
   }, [candidate]);
-  useEffect(() => {
-    const loadUsers = async () => {
-      const users = await getUsers();
-      if (users.length === 0 && candidate) {
-        await saveUser(candidate);
-        setStoredUsers([candidate]);
-        return;
-      }
-      setStoredUsers(users);
-    };
-    loadUsers().catch(() => setStoredUsers([]));
-  }, [candidate]);
-
-  const persistCandidate = async (nextCandidate: Candidate) => {
-    await saveUser(nextCandidate);
-    setStoredUsers(await getUsers());
-    setCandidate(nextCandidate);
-  };
 
   const showToast = (text: string, type: ToastMsg['type'] = 'success') => {
     const id = Date.now();
@@ -98,7 +76,6 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       savedJobs, toggleSaveJob,
       applications, applyToJob,
       candidate, setCandidate,
-      storedUsers, persistCandidate,
       toasts, showToast
     }}>
       {children}

@@ -10,7 +10,6 @@ import CompaniesPage from './pages/CompaniesPage';
 import CompanyDetailPage from './pages/CompanyDetailPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
-import StoredDataPage from './pages/StoredDataPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
@@ -40,7 +39,6 @@ export default function App() {
           <Route path="/companies/:id" element={<CompanyDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/stored-data" element={<StoredDataPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

@@ -16,8 +16,8 @@ const STAGES = ['Applied', 'In Review', 'Shortlisted', 'Interview', 'Offer'] as 
 
 export default function DashboardPage() {
   const navigate = useNavigate();
-  const { candidate, setCandidate, applications, jobs, savedJobs, applyToJob, storedUsers } = useApp();
-  const [tab, setTab] = useState<'overview' | 'apps' | 'saved' | 'profile' | 'stored'>('overview');
+  const { candidate, setCandidate, applications, jobs, savedJobs, applyToJob } = useApp();
+  const [tab, setTab] = useState<'overview' | 'apps' | 'saved' | 'profile'>('overview');
 
   if (!candidate) {
     return (
@@ -97,7 +97,6 @@ export default function DashboardPage() {
             { k: 'apps', label: `Applications (${stats.total})` },
             { k: 'saved', label: `Saved (${stats.saved})` },
             { k: 'profile', label: 'Profile' }
-            ,{ k: 'stored', label: 'Stored data' }
           ].map(t => (
             <button
               key={t.k}
@@ -242,34 +241,9 @@ export default function DashboardPage() {
               </div>
             </div>
           )}
-
-          {tab === 'stored' && (
-            <div className="max-w-3xl space-y-5">
-              <div>
-                <h2 className="text-xl font-bold text-slate-900">Stored user data</h2>
-                <p className="mt-1 text-sm text-slate-500">Your profile is persisted in this browser's IndexedDB database.</p>
-              </div>
-              <div className="overflow-hidden rounded-xl border border-slate-200">
-                <div className="grid grid-cols-1 divide-y divide-slate-100 text-sm sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-                  <StoredField label="Full name" value={candidate.fullName} />
-                  <StoredField label="Email" value={candidate.email} />
-                  <StoredField label="Phone" value={candidate.phone || 'Not provided'} />
-                  <StoredField label="Location" value={candidate.location || 'Not provided'} />
-                  <StoredField label="Headline" value={candidate.headline} />
-                  <StoredField label="Resume" value={candidate.resumeName || 'Not uploaded'} />
-                </div>
-              </div>
-              <div className="rounded-xl border border-blue-100 bg-blue-50 p-4 text-sm text-blue-800">
-                Database records in this browser: <strong>{storedUsers.length}</strong>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
   );
 }
 
-function StoredField({ label, value }: { label: string; value: string }) {
-  return <div className="p-4"><div className="text-xs font-semibold uppercase tracking-wide text-slate-400">{label}</div><div className="mt-1 break-words font-medium text-slate-800">{value}</div></div>;
-}

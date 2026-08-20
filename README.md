@@ -6,8 +6,7 @@ A polished, production-feeling MVP inspired by LinkedIn / Naukri.com. Built for 
 
 - **Smart Job Discovery** — Browse / search / filter jobs with rich detail pages, save for later
 - **Candidate Profile + Resume Upload** — labeled onboarding sections, drag-and-drop PDF resume, persistent profile
-- **Browser database** — candidate profiles are stored in IndexedDB and can be reviewed from Dashboard → Stored data
-- **Database viewer** — open `/stored-data` or use the **User data** navigation link to view saved profile records
+- **SQL/PHP backend option** — candidate records can be stored in MySQL and viewed through the backend PHP viewer
 - **Application Tracking Dashboard** — Apply to jobs, track application status pipeline, manage saved jobs & profile
 
 ## 🚀 Quick start
@@ -25,7 +24,7 @@ Open http://localhost:5173
 - **React 18** + **TypeScript** (Vite)
 - **Tailwind CSS** for styling
 - **React Router** for routing
-- **IndexedDB** for profile persistence, with localStorage retained for the demo session and application state
+- **localStorage** for the frontend demo session; optional MySQL/PHP backend for persistent server-side records
 - Inline SVG icons (no icon library bloat)
 
 ## 📦 Project structure
@@ -34,10 +33,15 @@ Open http://localhost:5173
 src/
 ├── components/   # Header, Footer, JobCard, CompanyCard, JobFilters, Toast, Loader
 ├── pages/        # Home, Jobs, JobDetail, Companies, CompanyDetail, Register, Dashboard
-├── context/      # AppContext — global state, persistence
+├── context/      # AppContext — global state, demo persistence
 ├── data/         # Mock jobs + companies
 ├── types/        # TypeScript types
 └── App.tsx
+
+backend/
+├── database/jobnest.sql    # MySQL schema for users and applications
+├── config.example.php      # Database configuration template
+└── view_users.php          # Password-protected PHP table viewer
 ```
 
 ## 🌐 Environment variables
@@ -61,7 +65,7 @@ VITE_API_BASE_URL=https://api.example.com
 ## ⚠ Known limitations
 
 - Data is mocked (12 jobs, 10 companies) — replace `src/data/*.ts` with API calls
-- Profile records are stored in the current browser's IndexedDB database; this is not a shared cloud database
+- The frontend does not write to the SQL database automatically; connect the registration submit handler to your PHP/API endpoint when deploying
 - No password-based authentication is implemented; email identifies the stored profile in this MVP
 - Resume stored as base64 in localStorage (5MB cap) — wire to S3/Cloudinary for real use
 - No real authentication — this is intentionally out of scope for MVP
