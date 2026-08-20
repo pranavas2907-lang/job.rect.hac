@@ -32,6 +32,7 @@ export default function Header() {
             <NavLink to="/jobs" className={navClass}>Jobs</NavLink>
             <NavLink to="/companies" className={navClass}>Companies</NavLink>
             <NavLink to="/dashboard" className={navClass}>Dashboard</NavLink>
+            <NavLink to="/stored-data" className={navClass}>User data</NavLink>
           </nav>
 
           <div className="flex items-center gap-2">

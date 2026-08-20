@@ -7,6 +7,7 @@ A polished, production-feeling MVP inspired by LinkedIn / Naukri.com. Built for 
 - **Smart Job Discovery** — Browse / search / filter jobs with rich detail pages, save for later
 - **Candidate Profile + Resume Upload** — labeled onboarding sections, drag-and-drop PDF resume, persistent profile
 - **Browser database** — candidate profiles are stored in IndexedDB and can be reviewed from Dashboard → Stored data
+- **Database viewer** — open `/stored-data` or use the **User data** navigation link to view saved profile records
 - **Application Tracking Dashboard** — Apply to jobs, track application status pipeline, manage saved jobs & profile
 
 ## 🚀 Quick start
