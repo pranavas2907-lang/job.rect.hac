@@ -1,6 +1,6 @@
 # JobNest SQL Database
 
-The frontend no longer exposes a user-data viewer. Candidate records can be stored in MySQL and viewed privately through the PHP viewer in this folder.
+Candidate profiles are stored in MySQL through `save_user.php` and viewed privately through `view_users.php` in this folder.
 
 ## 1. Create the database
 
@@ -28,7 +28,7 @@ SELECT * FROM applications ORDER BY applied_at DESC;
 
 ## 2. Configure the PHP viewer
 
-Copy `config.example.php` to `config.php` and set your MySQL credentials. Set a private password for the viewer before starting PHP:
+Copy `config.example.php` to `config.php` and set both reader and writer MySQL credentials. Set a private password for the viewer before starting PHP:
 
 PowerShell:
 
@@ -43,4 +43,4 @@ Open `http://localhost:8080/view_users.php` and enter the viewer password.
 
 ## Important
 
-The current React demo still saves its profile locally for the browser demo. To write new registrations into MySQL, connect the registration submit handler to a server-side PHP/API endpoint that validates input and inserts into `users` with a prepared PDO statement. Do not put MySQL credentials in React or Vite environment variables exposed to the browser.
+The React registration form posts profile data to `save_user.php`. Do not put MySQL credentials in React or Vite environment variables exposed to the browser.

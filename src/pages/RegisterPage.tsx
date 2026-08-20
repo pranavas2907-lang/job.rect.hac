@@ -57,14 +57,25 @@ export default function RegisterPage() {
     update('skills', next);
   };
 
-  const finish = () => {
+  const finish = async () => {
     if (!consentAccepted) {
       showToast('Please accept the application terms to continue', 'error');
       return;
     }
-    setCandidate(data);
-    showToast('Profile created! Welcome to JobNest 🎉', 'success');
-    navigate(redirect);
+    try {
+      const response = await fetch('http://localhost:8080/save_user.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Database save failed');
+      setCandidate(data);
+      showToast('Profile saved to database! Welcome to JobNest 🎉', 'success');
+      navigate(redirect);
+    } catch {
+      showToast('Could not save profile to the database. Is the PHP server running?', 'error');
+    }
   };
 
   return (
